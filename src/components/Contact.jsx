@@ -1,7 +1,31 @@
 import { motion } from 'framer-motion'
+import { useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { fadeUp } from '../utils/animations'
 
 export default function Contact() {
+  const formRef = useRef()
+  const [sending, setSending] = useState(false)
+  const [done, setDone] = useState(false)
+
+  const sendEmail = (e) => {
+    e.preventDefault()
+    setSending(true)
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY },
+      )
+      .then(() => {
+        setDone(true)
+        formRef.current.reset()
+      })
+      .catch(() => alert('Failed to send. Try again later.'))
+      .finally(() => setSending(false))
+  }
+
   return (
     <motion.section className="contact" id="contact" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
       <h2>Get In Touch</h2>
@@ -32,27 +56,28 @@ export default function Contact() {
             </div>
           </div>
         </div>
-        <form className="glass-card contact-form">
+        <form ref={formRef} className="glass-card contact-form" onSubmit={sendEmail}>
           <div className="field-grid">
             <div>
               <label>Name</label>
-              <input placeholder="// your name" type="text" />
+              <input name="name" placeholder="// your name" type="text" required />
             </div>
             <div>
               <label>Email</label>
-              <input placeholder="// your email" type="email" />
+              <input name="email" placeholder="// your email" type="email" required />
             </div>
           </div>
           <div>
             <label>Subject</label>
-            <input placeholder="// what&apos;s this about?" type="text" />
+            <input name="subject" placeholder="// what&apos;s this about?" type="text" required />
           </div>
           <div>
             <label>Message</label>
-            <textarea placeholder="// let&apos;s build something cool" rows="4"></textarea>
+            <textarea name="message" placeholder="// let&apos;s build something cool" rows="4" required></textarea>
           </div>
-          <button type="submit" className="btn btn-primary">
-            Send Message <span className="material-symbols-outlined">send</span>
+          <button type="submit" className="btn btn-primary" disabled={sending}>
+            {sending ? 'Sending...' : done ? 'Sent!' : 'Send Message'}
+            <span className="material-symbols-outlined">{done ? 'check' : 'send'}</span>
           </button>
         </form>
       </div>
