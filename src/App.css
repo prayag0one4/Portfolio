@@ -252,6 +252,7 @@ body[data-theme='light'] .typewriter-text {
 }
 
 .glass-card {
+  position: relative;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   backdrop-filter: blur(16px);

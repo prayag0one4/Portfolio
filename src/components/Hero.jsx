@@ -135,6 +135,7 @@ export default function Hero() {
         </motion.div>
       </motion.div>
       <motion.div className="hero-visual" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }}>
+        <div className="glow"></div>
         <motion.div className="glass-card code-card" animate={{ y: [0, -6, 0] }} transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}>
           <div className="card-header"></div>
           <div className="code-body">
