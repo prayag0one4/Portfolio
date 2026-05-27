@@ -104,7 +104,7 @@ export default function Hero() {
 
   return (
     <section className="hero" id="home">
-      <motion.div className="hero-content" variants={stagger} initial="show">
+      <motion.div className="hero-content" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }}>
         <motion.span className="pill" variants={fadeUp}>&lt;Hello&gt;</motion.span>
         <motion.h1 variants={fadeUp}>
           I&apos;m{' '}
@@ -134,8 +134,7 @@ export default function Hero() {
           </a>
         </motion.div>
       </motion.div>
-      <motion.div className="hero-visual" variants={fadeUp} initial="show">
-        <div className="glow"></div>
+      <motion.div className="hero-visual" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }}>
         <motion.div className="glass-card code-card" animate={{ y: [0, -6, 0] }} transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}>
           <div className="card-header"></div>
           <div className="code-body">
