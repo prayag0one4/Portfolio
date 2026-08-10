@@ -179,11 +179,7 @@ body[data-theme='light'] .typewriter-text {
   65%, 70% { border-color: var(--primary); }
   80%, 85% { width: 11ch; border-color: var(--primary); }
   90% { width: 0; border-color: var(--primary); }
-  100% { width: 0; border-color: var(--primary);   .footer-inner {
-    flex-direction: column;
-    gap: 16px;
-    justify-content: center;
-  }
+  100% { width: 0; border-color: var(--primary); }
 }
 
 .scroll-indicator {
@@ -210,11 +206,7 @@ body[data-theme='light'] .typewriter-text {
 
 @keyframes scrollBounce {
   0%, 100% { transform: translateY(0); opacity: 0.6; }
-  50% { transform: translateY(8px); opacity: 1;   .footer-inner {
-    flex-direction: column;
-    gap: 16px;
-    justify-content: center;
-  }
+  50% { transform: translateY(8px); opacity: 1; }
 }
 
 .hero h2 {
