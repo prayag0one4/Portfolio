@@ -55,6 +55,16 @@ export default function Contact() {
               <div className="value">Jewar, Uttar Pradesh</div>
             </div>
           </div>
+          <div className="info-row">
+            <span className="material-symbols-outlined">link</span>
+            <div>
+              <div className="label">SOCIALS</div>
+              <div className="value">
+                <a href="https://github.com/prayag0one4" target="_blank" rel="noopener noreferrer" style={{marginRight: '12px', textDecoration: 'underline'}}>GitHub</a>
+                <a href="https://www.linkedin.com/in/prayag-raj22/" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'underline'}}>LinkedIn</a>
+              </div>
+            </div>
+          </div>
         </div>
         <form ref={formRef} className="glass-card contact-form" onSubmit={sendEmail}>
           <div className="field-grid">

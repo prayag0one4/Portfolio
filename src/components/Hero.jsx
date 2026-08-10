@@ -118,7 +118,7 @@ export default function Hero() {
         </motion.p>
         <motion.div className="hero-actions" variants={fadeUp}>
           <a className="btn btn-primary" href="#contact">Contact</a>
-          <a className="btn btn-outline" href="https://drive.google.com/file/d/1TO6_ZyPHNAp4UsfETHOq_XgD-BS9rcLT/view?pli=1" target="_blank" rel="noopener noreferrer">
+          <a className="btn btn-outline" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
             Download Resume
           </a>
         </motion.div>
